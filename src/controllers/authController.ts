@@ -12,6 +12,11 @@ export class AuthController {
                 status: "success",
                 token,
             });
-        }catch(error)
+        }catch(error){
+            res.status(400).json({
+                status: "error",
+                message: error.message,
+            });
+        }
     }
 }
