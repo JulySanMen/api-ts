@@ -12,6 +12,7 @@ export class AuthService {
     const user = await this.userRepository.create(data);
     return generateToken(user._id.toString());
   }
+  
   async login(data:LoginDTO){
     const user = await this.userRepository.findByEmail(data.email);
     if (!user) throw new Error("User not found");
