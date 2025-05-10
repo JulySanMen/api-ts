@@ -6,6 +6,7 @@ export class UserRepository {
         return await new UserModel(user).save()
     }
 
+    
     async findByEmail(email: string) {
         return await UserModel.findOne({ email })
     }
