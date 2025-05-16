@@ -15,7 +15,13 @@ export class AuthController {
         }
     }
     static async login (req:Request, res:Response){
-       
+        try{
+            const token = authService.login(req.body);//{email, password}
+            res.json({token});
+        }catch(error:any){
+            res.status(400).json({message: error.message || "Credenciales no validas"});
+        }
+    }
 
     }
 }
