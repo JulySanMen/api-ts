@@ -10,4 +10,8 @@ export class UserRepository {
     async findByEmail(email: string) {
         return await UserModel.findOne({ email })
     }
+
+    async findall() {
+        return await UserModel.find()
+    }
 }
