@@ -21,4 +21,10 @@ export class AuthService {
 
     return generateToken(user._id.toString());
   }
+
+  async findAll() {
+    const users = await this.userRepository.findall();
+    if(!users) throw new Error("No se encontraron usuarios");
+    return users;
+  }
 }
